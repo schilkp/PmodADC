@@ -1,1 +1,1 @@
-# PModADC
+# PmodADC
