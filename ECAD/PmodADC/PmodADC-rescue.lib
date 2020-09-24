@@ -1,0 +1,22 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# LM317_SOT-223-Regulator_Linear
+#
+DEF LM317_SOT-223-Regulator_Linear U 0 10 Y Y 1 F N
+F0 "U" -150 125 50 H V C CNN
+F1 "LM317_SOT-223-Regulator_Linear" 0 125 50 H V L CNN
+F2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" 0 250 50 H I C CIN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ SOT?223*TabPin2*
+$ENDFPLIST
+DRAW
+S -200 75 200 -200 0 1 10 f
+X ADJ 1 0 -300 100 U 50 50 1 1 I
+X VO 2 300 0 100 L 50 50 1 1 w
+X VI 3 -300 0 100 R 50 50 1 1 W
+ENDDRAW
+ENDDEF
+#
+#End Library

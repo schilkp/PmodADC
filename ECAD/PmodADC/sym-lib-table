@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name LMV7235)(type Legacy)(uri ${KIPRJMOD}/LMV7235/Symbol/LMV7235.lib)(options "")(descr ""))
+  (lib (name OPA145DBV)(type Legacy)(uri ${KIPRJMOD}/OPA145DBV/Symbol/OPA145DBV.lib)(options "")(descr ""))
+  (lib (name PmodADC-rescue)(type Legacy)(uri ${KIPRJMOD}/PmodADC-rescue.lib)(options "")(descr ""))
+)
