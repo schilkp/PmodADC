@@ -2,4 +2,5 @@
   (lib (name LMV7235)(type Legacy)(uri ${KIPRJMOD}/LMV7235/Symbol/LMV7235.lib)(options "")(descr ""))
   (lib (name OPA145DBV)(type Legacy)(uri ${KIPRJMOD}/OPA145DBV/Symbol/OPA145DBV.lib)(options "")(descr ""))
   (lib (name PmodADC-rescue)(type Legacy)(uri ${KIPRJMOD}/PmodADC-rescue.lib)(options "")(descr ""))
+  (lib (name MAX6071)(type Legacy)(uri ${KIPRJMOD}/MAX6071/Symbol/MAX6071.lib)(options "")(descr ""))
 )

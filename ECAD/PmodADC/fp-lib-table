@@ -6,4 +6,5 @@
   (lib (name SOT763-1_DHVQFN16)(type KiCad)(uri ${KIPRJMOD}/SOT763-1_DHVQFN16/Footprint/SOT763-1_DHVQFN16.pretty)(options "")(descr ""))
   (lib (name Bourns_3362P)(type KiCad)(uri ${KIPRJMOD}/Bourns_3362P/Footprint/Bourns_3362P.pretty)(options "")(descr ""))
   (lib (name c_hold_BFC241841003)(type KiCad)(uri ${KIPRJMOD}/c_hold_BFC241841003.pretty)(options "")(descr ""))
+  (lib (name Leader_SMS405)(type KiCad)(uri ${KIPRJMOD}/Leader_SMS405/Footprint/Leader_SMS405.pretty)(options "")(descr ""))
 )
