@@ -1,0 +1,21 @@
+##### Clock and Reset #####
+set_io --warn-no-port pin_clk_i      35
+set_io --warn-no-port reset_ni       10
+
+##### PmodADC on PMOD1A #####
+
+# Sample and Hold
+set_io --warn-no-port ADC_SH_o       44
+
+# Comparator Input
+set_io --warn-no-port ADC_Comp_i     45
+
+# ADC DAC Interface 
+set_io --warn-no-port ADC_Ser_o      46 # Serial Out
+set_io --warn-no-port ADC_SClk_o     48 # Serial Clk
+set_io --warn-no-port ADC_LClk_o      3 # Latch Clk
+
+# DAC Interface
+set_io --warn-no-port ADC_DAC_Ser_o  47 # Serial Out
+set_io --warn-no-port ADC_DAC_SClk_o  2 # Serial Clk
+set_io --warn-no-port ADC_DAC_LClk_o  4 # Latch Clk
