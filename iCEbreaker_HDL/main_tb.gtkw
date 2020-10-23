@@ -1,0 +1,32 @@
+[*]
+[*] GTKWave Analyzer v3.3.77 (w)1999-2016 BSI
+[*] Fri Oct 23 15:45:52 2020
+[*]
+[dumpfile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\main_tb.vcd"
+[dumpfile_mtime] "Fri Oct 23 15:42:58 2020"
+[dumpfile_size] 2526
+[savefile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\main_tb.gtkw"
+[timestart] 0
+[size] 1920 1017
+[pos] 1911 -9
+*-18.000000 150000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] template_tb.
+[treeopen] template_tb.dut.
+[sst_width] 197
+[signals_width] 292
+[sst_expanded] 1
+[sst_vpaned_height] 300
+@28
+template_tb.dut.sa_adc.SA_ADC_Comp_i
+template_tb.dut.sa_adc.SA_ADC_LClk_o
+template_tb.dut.sa_adc.SA_ADC_SClk_o
+template_tb.dut.sa_adc.SA_ADC_SH_o
+template_tb.dut.sa_adc.SA_ADC_Ser_o
+@22
+template_tb.dut.sa_adc.SA_ADC_data_o[13:0]
+@28
+template_tb.dut.sa_adc.SA_ADC_data_rdy_o
+template_tb.dut.sa_adc.clk_i
+template_tb.dut.sa_adc.reset_ni
+[pattern_trace] 1
+[pattern_trace] 0
