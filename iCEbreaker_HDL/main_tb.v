@@ -6,13 +6,13 @@ reg clk_i, reset_ni;
 
 
 // ==== FPGA IO ====
-wire SA_ADC_SH_o;
-wire SA_ADC_Ser_o;
-wire SA_ADC_SClk_o;
-wire SA_ADC_LClk_o;
-wire SA_ADC_Comp_i;
-wire [13:0] SA_ADC_data_o;
-wire SA_ADC_data_rdy_o;
+wire ADC_SH_o;
+wire ADC_Ser_o;
+wire ADC_SClk_o;
+wire ADC_LClk_o;
+wire ADC_Comp_i;
+wire [13:0] ADC_data_o;
+wire ADC_data_rdy_o;
 
 // ==== Results ====
 reg [13:0] result;
@@ -38,18 +38,18 @@ always
 main dut(
 	.pin_clk_i(clk_i),
 	.reset_ni(reset_ni),
-	.SA_ADC_SH_o(SA_ADC_SH_o),
-	.SA_ADC_Ser_o(SA_ADC_Ser_o),
-	.SA_ADC_SClk_o(SA_ADC_SClk_o),
-	.SA_ADC_LClk_o(SA_ADC_LClk_o),
-	.SA_ADC_Comp_i(SA_ADC_Comp_i),
-	.SA_ADC_data_o(SA_ADC_data_o),
-	.SA_ADC_data_rdy_o(SA_ADC_data_rdy_o)
+	.ADC_SH_o(ADC_SH_o),
+	.ADC_Ser_o(ADC_Ser_o),
+	.ADC_SClk_o(ADC_SClk_o),
+	.ADC_LClk_o(ADC_LClk_o),
+	.ADC_Comp_i(ADC_Comp_i),
+	.ADC_data_o(ADC_data_o),
+	.ADC_data_rdy_o(ADC_data_rdy_o)
 );
 
 // ==== Emulate ADC ====
 localparam ADC_VAL = 16'h2FFF;
-assign SA_ADC_Comp_i = adc_shreg_l <= ADC_VAL;
+assign ADC_Comp_i = adc_shreg_l <= ADC_VAL;
 reg[15:0] adc_shreg_s;
 reg[15:0] adc_shreg_l;
 
@@ -63,16 +63,16 @@ initial
 reg adc_sclk_old;
 reg adc_lclk_old;
 always @ (posedge clk_i) begin
-	adc_sclk_old <= SA_ADC_SClk_o;
-	adc_lclk_old <= SA_ADC_LClk_o;
+	adc_sclk_old <= ADC_SClk_o;
+	adc_lclk_old <= ADC_LClk_o;
 	end
 
 // Emulate Shift register
 always @ (posedge clk_i) begin
-	if(SA_ADC_SClk_o & ~adc_sclk_old) begin
-		adc_shreg_s <= {SA_ADC_Ser_o,adc_shreg_s[15:1]};
+	if(ADC_SClk_o & ~adc_sclk_old) begin
+		adc_shreg_s <= {ADC_Ser_o,adc_shreg_s[15:1]};
 		end
-	if(SA_ADC_LClk_o & ~adc_lclk_old) begin
+	if(ADC_LClk_o & ~adc_lclk_old) begin
 		adc_shreg_l <= adc_shreg_s;
 		end
 	end

@@ -42,7 +42,7 @@ assign sclk_o = sclk;
 reg [WIDTH-1:0] data;
 reg [5:0] shifout_count;
 
-assign serial_o = data[0];
+assign serial_o = data[WIDTH-1];
 
 always @ (posedge clk_i, negedge reset_ni)
 	begin
@@ -72,7 +72,7 @@ always @ (posedge clk_i, negedge reset_ni)
 				STATE_SHIFTOUT_SHFT:
 					begin
 					sclk <= 0;
-					data = data >> 1;
+					data = data << 1;
 					if(shifout_count == WIDTH)
 						begin
 						state <= STATE_LATCHOUT;
