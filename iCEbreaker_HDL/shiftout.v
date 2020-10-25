@@ -2,8 +2,8 @@ module shiftout(
 	input clk_i,
 	input reset_ni,
 	
-	input [WIDTH-1:0] data_i,
-	input data_rdy_i,
+	input wire [WIDTH-1:0] data_i,
+	input wire data_rdy_i,
 	
 	output serial_o,
 	output sclk_o,

@@ -30,13 +30,13 @@ initial
 always
 	begin
 	#10 clk_i = ~clk_i;
-	//force template_tb.dut.u_pll.clock_out = clk_i;
+	force template_tb.dut.pll_36mh.clock_out = clk_i;
 	end
 
 
 // ==== DUT ====
 main dut(
-	.clk_i(clk_i),
+	.pin_clk_i(clk_i),
 	.reset_ni(reset_ni),
 	.SA_ADC_SH_o(SA_ADC_SH_o),
 	.SA_ADC_Ser_o(SA_ADC_Ser_o),
@@ -48,11 +48,37 @@ main dut(
 );
 
 // ==== Emulate ADC ====
-assign SA_ADC_Comp_i = 0;
+localparam ADC_VAL = 16'h2FFF;
+assign SA_ADC_Comp_i = adc_shreg_l <= ADC_VAL;
+reg[15:0] adc_shreg_s;
+reg[15:0] adc_shreg_l;
 
+initial
+	begin
+	adc_shreg_s <= 0;
+	adc_shreg_l <= 0;
+	end
+
+// Find rising edges of SCLK and LCLK
+reg adc_sclk_old;
+reg adc_lclk_old;
+always @ (posedge clk_i) begin
+	adc_sclk_old <= SA_ADC_SClk_o;
+	adc_lclk_old <= SA_ADC_LClk_o;
+	end
+
+// Emulate Shift register
+always @ (posedge clk_i) begin
+	if(SA_ADC_SClk_o & ~adc_sclk_old) begin
+		adc_shreg_s <= {SA_ADC_Ser_o,adc_shreg_s[15:1]};
+		end
+	if(SA_ADC_LClk_o & ~adc_lclk_old) begin
+		adc_shreg_l <= adc_shreg_s;
+		end
+	end
 
 // ==== Handle simulation ====
-parameter DURATION = 1000; //x timescale
+parameter DURATION = 100000; //x timescale
 `define DUMPSTR(x) `"x.vcd`"
 
 initial begin

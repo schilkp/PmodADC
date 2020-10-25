@@ -1,32 +1,69 @@
 [*]
 [*] GTKWave Analyzer v3.3.77 (w)1999-2016 BSI
-[*] Fri Oct 23 15:45:52 2020
+[*] Sun Oct 25 17:03:00 2020
 [*]
 [dumpfile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\main_tb.vcd"
-[dumpfile_mtime] "Fri Oct 23 15:42:58 2020"
-[dumpfile_size] 2526
+[dumpfile_mtime] "Sun Oct 25 16:55:43 2020"
+[dumpfile_size] 349593
 [savefile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\main_tb.gtkw"
 [timestart] 0
-[size] 1920 1017
-[pos] 1911 -9
-*-18.000000 150000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1536 801
+[pos] -1 -1
+*-23.973087 26920000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] template_tb.
 [treeopen] template_tb.dut.
-[sst_width] 197
+[sst_width] 324
 [signals_width] 292
 [sst_expanded] 1
-[sst_vpaned_height] 300
+[sst_vpaned_height] 224
 @28
-template_tb.dut.sa_adc.SA_ADC_Comp_i
-template_tb.dut.sa_adc.SA_ADC_LClk_o
-template_tb.dut.sa_adc.SA_ADC_SClk_o
-template_tb.dut.sa_adc.SA_ADC_SH_o
-template_tb.dut.sa_adc.SA_ADC_Ser_o
+template_tb.clk_i
+template_tb.reset_ni
+@200
+-
+-HARDWARE SIGNALS
+@28
+template_tb.SA_ADC_Comp_i
+template_tb.SA_ADC_SH_o
+template_tb.SA_ADC_LClk_o
+template_tb.SA_ADC_SClk_o
+template_tb.SA_ADC_Ser_o
+@200
+-
+-TESTBENCH VARIABLES
 @22
-template_tb.dut.sa_adc.SA_ADC_data_o[13:0]
+template_tb.adc_shreg_l[15:0]
+template_tb.adc_shreg_s[15:0]
+@200
+-
+-SA-ADC: Conversion
+@c00022
+template_tb.dut.sa_adc.current_bit[4:0]
 @28
-template_tb.dut.sa_adc.SA_ADC_data_rdy_o
-template_tb.dut.sa_adc.clk_i
-template_tb.dut.sa_adc.reset_ni
+(0)template_tb.dut.sa_adc.current_bit[4:0]
+(1)template_tb.dut.sa_adc.current_bit[4:0]
+(2)template_tb.dut.sa_adc.current_bit[4:0]
+(3)template_tb.dut.sa_adc.current_bit[4:0]
+(4)template_tb.dut.sa_adc.current_bit[4:0]
+@1401200
+-group_end
+@23
+template_tb.dut.sa_adc.dac_data_determined[13:0]
+@22
+template_tb.dut.sa_adc.dac_data_test[13:0]
+template_tb.dut.sa_adc.dac_data[15:0]
+@200
+-
+-SA-ADC: State Machine
+@22
+template_tb.dut.sa_adc.state[3:0]
+template_tb.dut.sa_adc.state_time_count[11:0]
+@200
+-
+-SA-ADC: Output
+@22
+template_tb.dut.sa_adc.data_o[13:0]
+@28
+template_tb.dut.sa_adc.data_rdy_o
 [pattern_trace] 1
 [pattern_trace] 0

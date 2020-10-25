@@ -1,5 +1,5 @@
 module main (
-	input wire clk_i, // Clock in 
+	input wire pin_clk_i, // Clock in 
 	input wire reset_ni, // Reset in
 	
 	// ADC Interface
@@ -14,16 +14,24 @@ module main (
 	output wire SA_ADC_data_rdy_o
 );
 
+wire clk;
+
+pll pll_36mh(
+	.clock_in(pin_clk_i),
+	.clock_out(clk),
+	.locked()
+);
+
 SA_ADC sa_adc(
-	.clk_i(clk_i),
+	.clk_i(clk),
 	.reset_ni(reset_ni),
-	.SA_ADC_SH_o(SA_ADC_SH_o),
-	.SA_ADC_Ser_o(SA_ADC_Ser_o),
-	.SA_ADC_SClk_o(SA_ADC_SClk_o),
-	.SA_ADC_LClk_o(SA_ADC_LClk_o),
-	.SA_ADC_Comp_i(SA_ADC_Comp_i),
-	.SA_ADC_data_o(SA_ADC_data_o),
-	.SA_ADC_data_rdy_o(SA_ADC_data_rdy_o)
+	.sh_o(SA_ADC_SH_o),
+	.ser_o(SA_ADC_Ser_o),
+	.sclk_o(SA_ADC_SClk_o),
+	.lclk_o(SA_ADC_LClk_o),
+	.comp_i(SA_ADC_Comp_i),
+	.data_o(SA_ADC_data_o),
+	.data_rdy_o(SA_ADC_data_rdy_o)
 );
 
 endmodule
