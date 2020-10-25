@@ -1,0 +1,31 @@
+[*]
+[*] GTKWave Analyzer v3.3.77 (w)1999-2016 BSI
+[*] Sun Oct 25 10:48:47 2020
+[*]
+[dumpfile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\shiftout_tb.vcd"
+[dumpfile_mtime] "Sun Oct 25 10:41:05 2020"
+[dumpfile_size] 24699
+[savefile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\shiftout_tb.gtkw"
+[timestart] 640000
+[size] 1536 801
+[pos] -1 -1
+*-18.000000 783100 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] template_tb.
+[sst_width] 197
+[signals_width] 458
+[sst_expanded] 1
+[sst_vpaned_height] 224
+@28
+template_tb.dut.clk_i
+@29
+template_tb.dut.data_i[15:0]
+@28
+template_tb.dut.data_rdy_i
+@22
+template_tb.dut.state[2:0]
+@28
+template_tb.dut.lclk_o
+template_tb.dut.sclk_o
+template_tb.dut.serial_o
+[pattern_trace] 1
+[pattern_trace] 0
