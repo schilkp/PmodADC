@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.77 (w)1999-2016 BSI
-[*] Sun Oct 25 17:03:00 2020
+[*] Sun Oct 25 20:13:03 2020
 [*]
 [dumpfile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\main_tb.vcd"
-[dumpfile_mtime] "Sun Oct 25 16:55:43 2020"
-[dumpfile_size] 349593
+[dumpfile_mtime] "Sun Oct 25 20:12:53 2020"
+[dumpfile_size] 358792
 [savefile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\main_tb.gtkw"
-[timestart] 0
-[size] 1536 801
+[timestart] 4480000
+[size] 1536 800
 [pos] -1 -1
-*-23.973087 26920000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-21.973087 19420000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] template_tb.
 [treeopen] template_tb.dut.
 [sst_width] 324
@@ -23,17 +23,23 @@ template_tb.reset_ni
 -
 -HARDWARE SIGNALS
 @28
-template_tb.SA_ADC_Comp_i
-template_tb.SA_ADC_SH_o
-template_tb.SA_ADC_LClk_o
-template_tb.SA_ADC_SClk_o
-template_tb.SA_ADC_Ser_o
+template_tb.dut.ADC_Comp_i
+template_tb.dut.ADC_Ser_o
+template_tb.dut.ADC_SClk_o
+template_tb.dut.ADC_LClk_o
+template_tb.dut.ADC_SH_o
+template_tb.dut.DAC_LClk_o
+template_tb.dut.DAC_SClk_o
+template_tb.dut.DAC_Ser_o
 @200
 -
 -TESTBENCH VARIABLES
 @22
 template_tb.adc_shreg_l[15:0]
 template_tb.adc_shreg_s[15:0]
+template_tb.dac_shreg_l[15:0]
+@23
+template_tb.dac_shreg_s[15:0]
 @200
 -
 -SA-ADC: Conversion
@@ -47,9 +53,8 @@ template_tb.dut.sa_adc.current_bit[4:0]
 (4)template_tb.dut.sa_adc.current_bit[4:0]
 @1401200
 -group_end
-@23
-template_tb.dut.sa_adc.dac_data_determined[13:0]
 @22
+template_tb.dut.sa_adc.dac_data_determined[13:0]
 template_tb.dut.sa_adc.dac_data_test[13:0]
 template_tb.dut.sa_adc.dac_data[15:0]
 @200
@@ -65,5 +70,12 @@ template_tb.dut.sa_adc.state_time_count[11:0]
 template_tb.dut.sa_adc.data_o[13:0]
 @28
 template_tb.dut.sa_adc.data_rdy_o
+@200
+-
+-DAC:
+@28
+template_tb.dut.dac_out.data_rdy_i
+@22
+template_tb.dut.dac_out.data[15:0]
 [pattern_trace] 1
 [pattern_trace] 0

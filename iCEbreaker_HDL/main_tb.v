@@ -11,8 +11,10 @@ wire ADC_Ser_o;
 wire ADC_SClk_o;
 wire ADC_LClk_o;
 wire ADC_Comp_i;
-wire [13:0] ADC_data_o;
-wire ADC_data_rdy_o;
+
+wire DAC_Ser_o;
+wire DAC_SClk_o;
+wire DAC_LClk_o;
 
 // ==== Results ====
 reg [13:0] result;
@@ -43,12 +45,13 @@ main dut(
 	.ADC_SClk_o(ADC_SClk_o),
 	.ADC_LClk_o(ADC_LClk_o),
 	.ADC_Comp_i(ADC_Comp_i),
-	.ADC_data_o(ADC_data_o),
-	.ADC_data_rdy_o(ADC_data_rdy_o)
+	.DAC_Ser_o(DAC_Ser_o),
+	.DAC_SClk_o(DAC_SClk_o),
+	.DAC_LClk_o(DAC_LClk_o)
 );
 
 // ==== Emulate ADC ====
-localparam ADC_VAL = 16'h2FFF;
+localparam ADC_VAL = 16'h2A52;
 assign ADC_Comp_i = adc_shreg_l <= ADC_VAL;
 reg[15:0] adc_shreg_s;
 reg[15:0] adc_shreg_l;
@@ -70,13 +73,41 @@ always @ (posedge clk_i) begin
 // Emulate Shift register
 always @ (posedge clk_i) begin
 	if(ADC_SClk_o & ~adc_sclk_old) begin
-		adc_shreg_s <= {ADC_Ser_o,adc_shreg_s[15:1]};
+		adc_shreg_s <= {adc_shreg_s[14:0],ADC_Ser_o};
 		end
 	if(ADC_LClk_o & ~adc_lclk_old) begin
 		adc_shreg_l <= adc_shreg_s;
 		end
 	end
 
+// ==== Emulate DAC ====
+reg[15:0] dac_shreg_s;
+reg[15:0] dac_shreg_l;
+
+initial
+	begin
+	dac_shreg_s <= 0;
+	dac_shreg_l <= 0;
+	end
+	
+// Find rising edges of SCLK and LCLK
+reg dac_sclk_old;
+reg dac_lclk_old;
+always @ (posedge clk_i) begin
+	dac_sclk_old <= DAC_SClk_o;
+	dac_lclk_old <= DAC_LClk_o;
+	end
+	
+// Emulate Shift register
+always @ (posedge clk_i) begin
+	if(DAC_SClk_o & ~dac_sclk_old) begin
+		dac_shreg_s <= {dac_shreg_s[14:0],DAC_Ser_o};
+		end
+	if(DAC_LClk_o & ~dac_lclk_old) begin
+		dac_shreg_l <= dac_shreg_s;
+		end
+	end
+	
 // ==== Handle simulation ====
 parameter DURATION = 100000; //x timescale
 `define DUMPSTR(x) `"x.vcd`"

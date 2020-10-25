@@ -16,6 +16,6 @@ set_io --warn-no-port ADC_SClk_o     48 # Serial Clk
 set_io --warn-no-port ADC_LClk_o      3 # Latch Clk
 
 # DAC Interface
-set_io --warn-no-port ADC_DAC_Ser_o  47 # Serial Out
-set_io --warn-no-port ADC_DAC_SClk_o  2 # Serial Clk
-set_io --warn-no-port ADC_DAC_LClk_o  4 # Latch Clk
+set_io --warn-no-port DAC_Ser_o      47 # Serial Out
+set_io --warn-no-port DAC_SClk_o      2 # Serial Clk
+set_io --warn-no-port DAC_LClk_o      4 # Latch Clk
