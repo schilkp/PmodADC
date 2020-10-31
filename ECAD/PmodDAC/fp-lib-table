@@ -1,0 +1,7 @@
+(fp_lib_table
+  (lib (name SOT-23-5-GuardSpacing)(type KiCad)(uri ${KIPRJMOD}/SOT-23-5-GuardSpacing.pretty)(options "")(descr ""))
+  (lib (name Jack_3.5mm_PJ-313D-6A)(type KiCad)(uri ${KIPRJMOD}/Jack_3.5mm_PJ-313D-6A/Footprint/Jack_3.5mm_PJ-313D-6A.pretty)(options "")(descr ""))
+  (lib (name SOT764-1_DHVQFN20)(type KiCad)(uri ${KIPRJMOD}/SOT764-1_DHVQFN20/Footprint/SOT764-1_DHVQFN20.pretty)(options "")(descr ""))
+  (lib (name SOT763-1_DHVQFN16)(type KiCad)(uri ${KIPRJMOD}/SOT763-1_DHVQFN16/Footprint/SOT763-1_DHVQFN16.pretty)(options "")(descr ""))
+  (lib (name Leader_SMS405)(type KiCad)(uri ${KIPRJMOD}/Leader_SMS405/Footprint/Leader_SMS405.pretty)(options "")(descr ""))
+)

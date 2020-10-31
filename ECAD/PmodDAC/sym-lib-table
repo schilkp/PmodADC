@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name TPS63700)(type Legacy)(uri ${KIPRJMOD}/TPS63700/Symbol/TPS63700.lib)(options "")(descr ""))
+  (lib (name LDK220_LDK320)(type Legacy)(uri ${KIPRJMOD}/LDK220_LDK320/Symbol/LDK220_LDK320.lib)(options "")(descr ""))
+  (lib (name MIC5270)(type Legacy)(uri ${KIPRJMOD}/MIC5270/Symbol/MIC5270.lib)(options "")(descr ""))
+  (lib (name MAX6071)(type Legacy)(uri ${KIPRJMOD}/MAX6071/Symbol/MAX6071.lib)(options "")(descr ""))
+)
