@@ -4,14 +4,14 @@ EELAYER END
 $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
-Title "PmodADC"
-Date "2020-10-12"
-Rev "v0.1"
+Title "PmodDAC"
+Date "2020-10-31"
+Rev "v0.2"
 Comp "Philipp Schilk"
 Comment1 ""
 Comment2 ""
 Comment3 ""
-Comment4 ""
+Comment4 "https://github.com/TheSchilk/PmodADC"
 $EndDescr
 $Comp
 L Device:R_Small R22
@@ -2235,7 +2235,7 @@ F 3 "~" H 10500 3000 50  0001 C CNN
 	1    10500 3000
 	1    0    0    -1  
 $EndComp
-Text Notes 9650 5550 0    79   ~ 0
+Text Notes 9350 5500 0    79   ~ 0
 20khz Sallen-Key LP
 Connection ~ 11950 4000
 Wire Wire Line
@@ -3407,4 +3407,6 @@ F 3 "" H 12150 3600 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	14300 4350 14750 4350
+Text Notes 11200 5500 0    79   ~ 0
+20khz Sallen-Key LP
 $EndSCHEMATC
