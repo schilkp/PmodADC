@@ -5,13 +5,13 @@ $Descr A3 16535 11693
 encoding utf-8
 Sheet 1 1
 Title "PmodADC"
-Date "2020-10-12"
-Rev "v0.1"
+Date "2020-10-31"
+Rev "v0.2"
 Comp "Philipp Schilk"
 Comment1 ""
 Comment2 ""
 Comment3 ""
-Comment4 ""
+Comment4 "https://github.com/TheSchilk/PmodADC"
 $EndDescr
 $Comp
 L Device:R_Small R22
