@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.77 (w)1999-2016 BSI
-[*] Sun Oct 25 20:13:03 2020
+[*] Sat Nov 14 11:33:03 2020
 [*]
 [dumpfile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\main_tb.vcd"
-[dumpfile_mtime] "Sun Oct 25 20:12:53 2020"
-[dumpfile_size] 358792
+[dumpfile_mtime] "Sat Nov 14 11:32:36 2020"
+[dumpfile_size] 306365
 [savefile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\main_tb.gtkw"
-[timestart] 4480000
+[timestart] 450000
 [size] 1536 800
 [pos] -1 -1
-*-21.973087 19420000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-22.973087 3570000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] template_tb.
 [treeopen] template_tb.dut.
 [sst_width] 324
@@ -31,6 +31,8 @@ template_tb.dut.ADC_SH_o
 template_tb.dut.DAC_LClk_o
 template_tb.dut.DAC_SClk_o
 template_tb.dut.DAC_Ser_o
+@29
+template_tb.dut.ADC_Comp_L_o
 @200
 -
 -TESTBENCH VARIABLES
@@ -38,7 +40,6 @@ template_tb.dut.DAC_Ser_o
 template_tb.adc_shreg_l[15:0]
 template_tb.adc_shreg_s[15:0]
 template_tb.dac_shreg_l[15:0]
-@23
 template_tb.dac_shreg_s[15:0]
 @200
 -

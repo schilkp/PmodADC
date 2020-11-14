@@ -8,6 +8,7 @@ module main (
 	output ADC_SClk_o,
 	output ADC_LClk_o,
 	input ADC_Comp_i,
+	output ADC_Comp_L_o,
 	
 	output DAC_Ser_o,
 	output DAC_SClk_o,
@@ -24,6 +25,7 @@ module main (
 wire clk;
 wire [13:0] data;
 wire data_rdy;
+assign ADC_Comp_L_o = 1'b0;
 
 
 pll pll_36mh(
