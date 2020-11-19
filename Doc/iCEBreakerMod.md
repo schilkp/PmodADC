@@ -9,6 +9,6 @@ section may interfere with the communication.
 Therefore the break-off section should either be broken-off, or the PMOD2 connection disconnected 
 by removing the 2 Resistor Networks indicated below:
 
-![Resistor Networks to be removed](Doc/imgs/PMOD2_dc.jpeg)
+![Resistor Networks to be removed](imgs/PMOD2_dc.jpeg)
 
 To be fair, I don't know if this would actually be a problem. I did not test it. 
