@@ -6,7 +6,7 @@ A quick guide on how to setup the open-source [APIO](https://github.com/FPGAwars
 
 ###	Prerequisites
 
-A working python3 environment is required.
+ - A working python3 environment.
 
 
 ### Toolchain install
