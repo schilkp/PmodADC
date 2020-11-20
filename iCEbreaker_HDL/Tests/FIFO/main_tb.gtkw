@@ -1,0 +1,53 @@
+[*]
+[*] GTKWave Analyzer v3.3.77 (w)1999-2016 BSI
+[*] Fri Nov 20 14:58:02 2020
+[*]
+[dumpfile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\Tests\FIFO_TX\main_tb.vcd"
+[dumpfile_mtime] "Fri Nov 20 14:57:48 2020"
+[dumpfile_size] 261300
+[savefile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\Tests\FIFO_TX\main_tb.gtkw"
+[timestart] 0
+[size] 1536 801
+[pos] -1 -1
+*-26.000000 7800000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] template_tb.
+[treeopen] template_tb.dut.
+[sst_width] 197
+[signals_width] 231
+[sst_expanded] 1
+[sst_vpaned_height] 224
+@200
+-Testbench stimulus
+@28
+template_tb.clk_i
+template_tb.reset_ni
+@200
+-
+-FIFO IO
+@22
+template_tb.dut.fifo.data_io[0:7]
+@28
+template_tb.dut.fifo.nWR_o
+template_tb.dut.fifo.nRD_o
+template_tb.dut.fifo.nRXF_i
+template_tb.dut.fifo.nTXE_i
+@200
+-
+-FIFO Results
+@28
+template_tb.dut.fifo.tx_err_o
+template_tb.dut.fifo.tx_err_led_o
+template_tb.dut.fifo.rx_err_o
+template_tb.dut.fifo.rx_err_led_o
+@22
+template_tb.dut.fifo.rx_data_o[0:7]
+@28
+template_tb.dut.fifo.rx_data_rdy_o
+@200
+-
+-MAIN
+@22
+template_tb.dut.counter[15:0]
+template_tb.dut.data_counter[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
