@@ -1,0 +1,46 @@
+##### Clock and Reset #####
+set_io --warn-no-port pin_clk_i      35
+set_io --warn-no-port reset_ni       41
+
+##### LEDs #####
+set_io --warn-no-port led_txerr_o    40
+set_io --warn-no-port led_rxerr_o    39
+
+##### FTDI FT2232H Async Fifo Port B #####
+set_io --warn-no-port fifo_d0_io      6
+set_io --warn-no-port fifo_d1_io      9
+set_io --warn-no-port fifo_d2_io     18
+set_io --warn-no-port fifo_d3_io     19
+set_io --warn-no-port fifo_d4_io     20
+set_io --warn-no-port fifo_d5_io     21
+set_io --warn-no-port fifo_d6_io     23
+set_io --warn-no-port fifo_d7_io     25
+
+set_io --warn-no-port fifo_nRXF_i    26
+set_io --warn-no-port fifo_nTXE_i    27
+set_io --warn-no-port fifo_nRD_o     11
+set_io --warn-no-port fifo_nWD_o     37
+
+##### PmodADC on PMOD1A #####
+
+# Sample and Hold
+set_io --warn-no-port ADC_SH_o       44
+
+# Comparator Input
+set_io --warn-no-port ADC_Comp_i     45
+
+# Comparator Latch Output
+set_io --warn-no-port ADC_Comp_L_o   47
+
+# ADC DAC Interface 
+set_io --warn-no-port ADC_Ser_o      46 # Serial Out
+set_io --warn-no-port ADC_SClk_o     48 # Serial Clk
+set_io --warn-no-port ADC_LClk_o      3 # Latch Clk
+
+
+##### PmodDAC on PMOD1B ####
+
+# DAC Interface
+set_io --warn-no-port DAC_Ser_o      42 # Serial Out
+set_io --warn-no-port DAC_SClk_o     36 # Serial Clk
+set_io --warn-no-port DAC_LClk_o     32 # Latch Clk

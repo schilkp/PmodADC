@@ -1,0 +1,88 @@
+[*]
+[*] GTKWave Analyzer v3.3.77 (w)1999-2016 BSI
+[*] Fri Nov 20 20:10:17 2020
+[*]
+[dumpfile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\Setup4_AudioInterface\main_tb.vcd"
+[dumpfile_mtime] "Fri Nov 20 20:08:28 2020"
+[dumpfile_size] 549620
+[savefile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\Setup4_AudioInterface\main_tb.gtkw"
+[timestart] 0
+[size] 1536 801
+[pos] -1 -1
+*-25.000000 17630000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] template_tb.
+[treeopen] template_tb.dut.
+[treeopen] template_tb.dut.adc_dac_interface.
+[sst_width] 197
+[signals_width] 322
+[sst_expanded] 1
+[sst_vpaned_height] 224
+@200
+-Testbench stimulus
+@28
+template_tb.clk_i
+template_tb.reset_ni
+@200
+-
+-===== FPGA IO =====
+-ADC
+@28
+template_tb.dut.ADC_SH_o
+template_tb.dut.ADC_Ser_o
+template_tb.dut.ADC_SClk_o
+template_tb.dut.ADC_LClk_o
+template_tb.dut.ADC_Comp_i
+template_tb.dut.ADC_Comp_L_o
+@200
+-DAC
+@28
+template_tb.dut.DAC_Ser_o
+template_tb.dut.DAC_SClk_o
+template_tb.dut.DAC_LClk_o
+@200
+-FIFO
+@29
+template_tb.dut.adc_dac_interface.data_io[0:7]
+@28
+template_tb.dut.fifo_nRXF_i
+template_tb.dut.fifo_nTXE_i
+template_tb.dut.fifo_nRD_o
+template_tb.dut.fifo_nWD_o
+@200
+-LEDs
+@28
+template_tb.dut.led_rxerr_o
+template_tb.dut.led_txerr_o
+@200
+-
+-===== Computer Interface =====
+@24
+template_tb.dut.adc_dac_interface.state[2:0]
+@28
+template_tb.dut.adc_dac_interface.tx_pckg_1
+template_tb.dut.adc_dac_interface.tx_pckg_2
+@200
+-
+-===== FIFO Interface =====
+@28
+template_tb.dut.adc_dac_interface.fifo.tx_data_rdy_i
+@22
+template_tb.dut.adc_dac_interface.fifo.tx_data_i[0:7]
+@28
+template_tb.dut.adc_dac_interface.fifo.tx_ok_o
+template_tb.dut.adc_dac_interface.fifo.tx_err_o
+@200
+-
+@28
+template_tb.dut.adc_dac_interface.fifo.rx_data_rdy_o
+@22
+template_tb.dut.adc_dac_interface.fifo.rx_data_o[0:7]
+@28
+template_tb.dut.adc_dac_interface.fifo.rx_poll_i
+template_tb.dut.adc_dac_interface.fifo.rx_err_o
+@200
+-
+@28
+template_tb.dut.adc_dac_interface.fifo.busy_o
+[pattern_trace] 1
+[pattern_trace] 0

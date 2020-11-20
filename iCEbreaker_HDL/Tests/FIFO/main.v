@@ -51,6 +51,7 @@ fifo_interface fifo(
 	.tx_data_rdy_i(tx_data_rdy),
 	.tx_data_i(data),
 	.tx_err_o(),
+	.tx_ok_o(),
 	
 	.rx_poll_i(rx_poll),
 	.rx_data_rdy_o(rx_rdy),
