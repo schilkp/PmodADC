@@ -25,7 +25,7 @@ module main(
 
 wire clk;
 reg [15:0] counter;
-reg [7:0] data_counter;
+reg [7:0] data;
 reg tx_data_rdy;
 
 pll pll_36mh(
@@ -34,6 +34,9 @@ pll pll_36mh(
 	.locked()
 );
 
+wire rx_rdy;
+wire [7:0] rx_data;
+reg rx_poll;
 
 fifo_interface fifo(
 	.clk_i(clk),
@@ -46,36 +49,48 @@ fifo_interface fifo(
 	.nWR_o(fifo_nWD_o),
 
 	.tx_data_rdy_i(tx_data_rdy),
-	.tx_data_i(data_counter),
-	.rx_data_rdy_o(),
-	.rx_data_o(),
-
+	.tx_data_i(data),
 	.tx_err_o(),
+	
+	.rx_poll_i(rx_poll),
+	.rx_data_rdy_o(rx_rdy),
+	.rx_data_o(rx_data),
 	.rx_err_o(),
-	.tx_err_led_o(led_txerr_o),
-	.rx_err_led_o(led_rxerr_o)
+	
+	.busy_o()
+	
 );
 
 localparam COUNTER_MAX = 877;
+localparam COUNTER_HALF = 438;
 
- always @ (posedge clk) begin
+
+always @ (posedge clk) begin
 	if(~reset_ni) begin
 		counter <= 'b0;
-		data_counter <= 'b0;
+		data <= "P";
 		tx_data_rdy <= 'b0;
+		rx_poll <= 'b0;
 	end else begin
+
 		if(counter == COUNTER_MAX) begin
 			counter <= 0;
-			if(data_counter == "}") begin
-				data_counter <= "1";
-			end else begin	
-				data_counter <= data_counter + 1;
-			end
 			tx_data_rdy <= 1;
+			if(data == "}") begin
+				data <= "1";
+			end else begin	
+				data <= data + 1;
+			end
 		end else begin
 			counter <= counter + 1;
-			data_counter <= data_counter;
 			tx_data_rdy <= 0;
+			data <= data;
+		end 
+		
+		if(counter == COUNTER_HALF) begin
+			rx_poll <= 'b1;
+		end else begin
+			rx_poll <= 'b0;
 		end
 	end
 end
