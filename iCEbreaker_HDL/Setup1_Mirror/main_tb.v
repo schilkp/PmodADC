@@ -39,7 +39,7 @@ always
 // ==== DUT ====
 main dut(
 	.pin_clk_i(clk_i),
-	.reset_ni(reset_ni),
+	//.reset_ni(reset_ni),
 	.ADC_SH_o(ADC_SH_o),
 	.ADC_Ser_o(ADC_Ser_o),
 	.ADC_SClk_o(ADC_SClk_o),
