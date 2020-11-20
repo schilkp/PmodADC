@@ -37,6 +37,7 @@ assign sh_o = sh;
 reg [13:0] dac_data_determined;
 reg [13:0] dac_data_test;
 wire [15:0] dac_data;
+// DAC data is always the bits already determined, and the bit we are currently testing:
 assign dac_data = {2'b0, dac_data_determined | dac_data_test};
 
 reg dac_data_rdy;
@@ -72,9 +73,9 @@ always @ (posedge clk_i, negedge reset_ni) begin
 		current_bit <= 0;
 	end else begin
 		case(state)
-		
-		
 			STATE_SAMPLE: begin
+				// Let the S&H Circuit sample for the duration determined by STATE_SAMPLE_LENGTH.
+				// After, go to STATE_SAMPLE_SETTLE.
 				sh <= 1;
 				dataout_rdy <= 0;
 				dac_data_rdy <= 0;
@@ -92,9 +93,9 @@ always @ (posedge clk_i, negedge reset_ni) begin
 					state_time_count <= state_time_count - 1;
 				end
 			end
-			
-			
 			STATE_SAMPLE_SETTLE: begin
+			    // Let the S&H's Output settle for the duration determined by STATE_SAMPLE_SETTLE_LENGTH.
+				// After, we can start the actual conversion, by going to STATE_DAC_SET.
 				sh <= 0;
 				dataout_rdy <= 0;
 				dac_data_rdy <= 0;
@@ -114,29 +115,43 @@ always @ (posedge clk_i, negedge reset_ni) begin
 			
 			
 			STATE_DAC_SET: begin
-				
+				// Upon entering the state, output the current DAC data to the dac.
+				// Wait for STATE_DAC_SET_LENGTH, then read the output of the comparator.
+				// If this is the last bit, output the result and go back to STATE_SAMPLE_LENGTH.
+				// If this is not the last bit, save the current comparator output to the determined data
+				// and continue conversion by re-entering STATE_DAC_SET. 
 				sh <= 0;
 				
+				// Output DAC value upon state entry
 				if(state_time_count == STATE_DAC_SET_LENGTH) begin
 					// If we just entered this state, output the current value on the dac
-					dac_data_test <= (14'h2000 >> current_bit);
+					dac_data_test <= (14'h2000 >> current_bit); // The bit we are currently testing
 					dac_data_rdy <= 1;
 				end else begin
 					dac_data_test <= dac_data_test;
 					dac_data_rdy <= 0;
 				end
 				
+				// Once STATE_DAC_SET_LENGTH is over:
 				if(state_time_count == 0) begin
-					
-					
-					dac_data_determined = dac_data_determined | (comp_i << (13-current_bit));
 					if(current_bit == 13) begin
+						// If the conversion is done, output the result
+						// and start the next conversion
 						current_bit = 0;
 						state <= STATE_SAMPLE;
 						state_time_count <= STATE_SAMPLE_LENGTH;
 						dataout_rdy <= 1;
+						
+						// Output data is the previously determined bits and the current 
+						// Comparator output:
 						dataout <= {dac_data_determined[13:1],comp_i};
+						dac_data_determined <= 'b0;
 					end else begin
+						// If the conversion is not yet done, keep going.
+						// Latch Comparator state into dac_data_determined:
+						dac_data_determined <= dac_data_determined | (comp_i << (13-current_bit));
+						
+						// Go back into STATE_DAC_SET to convert the next bit.
 						current_bit = current_bit + 1;
 						dataout <= dataout;
 						state <= STATE_DAC_SET;
@@ -144,6 +159,7 @@ always @ (posedge clk_i, negedge reset_ni) begin
 						dataout_rdy <= 0;
 					end
 				end else begin
+					// Keep waiting for the DAC to be set and the output to be settled.
 					dataout <= dataout;
 					dataout_rdy <= 0;
 					state <= state;
