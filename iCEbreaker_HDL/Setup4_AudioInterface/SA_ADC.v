@@ -18,7 +18,7 @@ module SA_ADC (
 reg [3:0] state;
 
 localparam STATE_SAMPLE = 0;
-localparam STATE_SAMPLE_LENGTH = 2000; //200
+localparam STATE_SAMPLE_LENGTH = 200;
 
 localparam STATE_SAMPLE_SETTLE = 1;
 localparam STATE_SAMPLE_SETTLE_LENGTH = 30;
