@@ -1,3 +1,8 @@
+/*
+
+
+*/
+
 module main(
 	// System
 	input pin_clk_i,
@@ -62,7 +67,7 @@ fifo_interface fifo(
 	
 );
 
-localparam COUNTER_MAX = 877;
+localparam COUNTER_MAX = 877; // Aprox 41khz
 localparam COUNTER_HALF = 438;
 
 
@@ -73,7 +78,8 @@ always @ (posedge clk) begin
 		tx_data_rdy <= 'b0;
 		rx_poll <= 'b0;
 	end else begin
-
+		
+		// Transmit first package on counter overflow
 		if(counter == COUNTER_MAX) begin
 			counter <= 0;
 			tx_data_rdy <= 1;
@@ -83,16 +89,25 @@ always @ (posedge clk) begin
 				data <= data + 1;
 			end
 		end else begin
+			// Transmit second package a little later
 			counter <= counter + 1;
-			tx_data_rdy <= 0;
+			if(counter == 7) begin
+				tx_data_rdy <= 1;
+			end else begin
+				tx_data_rdy <= 0;
+			end
 			data <= data;
 		end 
 		
+
+		/* No RX for new
 		if(counter == COUNTER_HALF) begin
 			rx_poll <= 'b1;
 		end else begin
 			rx_poll <= 'b0;
 		end
+		*/ 
+		rx_poll <= 'b0;
 	end
 end
 
