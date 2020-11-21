@@ -23,7 +23,7 @@ To be fair, I don't know if this would actually be a problem. I did not test it.
 The FIFO needs to be connected to the FPGA using the (labelled) solder jumpers on the back side of the board.
 Two of them are already connected by default for UART communication. 
 
-![FIFO Jumpers](fifo_jumpers.jpeg)
+![FIFO Jumpers](imgs/fifo_jumpers.jpeg)
 
 ## Add Reset Pull-up
 
