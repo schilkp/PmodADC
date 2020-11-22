@@ -74,7 +74,7 @@ localparam COUNTER_HALF = 438;
 always @ (posedge clk) begin
 	if(~reset_ni) begin
 		counter <= 'b0;
-		data <= "P";
+		data <= "0";
 		tx_data_rdy <= 'b0;
 		rx_poll <= 'b0;
 	end else begin
@@ -84,7 +84,7 @@ always @ (posedge clk) begin
 			counter <= 0;
 			tx_data_rdy <= 1;
 			if(data == "}") begin
-				data <= "1";
+				data <= "0";
 			end else begin	
 				data <= data + 1;
 			end
