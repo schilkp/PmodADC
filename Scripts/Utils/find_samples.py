@@ -4,7 +4,7 @@ def find_samples(data):
     samples = []
     fail_count = 0
 
-    for i in range(data.size):
+    for i in range(len(data)):
         if looking_for_pckg == 1:
             # Check if this is a starting byte
             if (data[i] & 0x80) != 0:

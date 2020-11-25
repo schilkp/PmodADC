@@ -10,7 +10,7 @@ sample_rate = 41000
 
 total_sample_count = 2 * sample_rate * record_time_seconds  # 2 bytes per sample
 index = 0
-Data = np.zeros(total_sample_count, dtype=int)
+Data = []
 next_percent = 1
 
 with serial.Serial(port) as comport:
@@ -18,7 +18,7 @@ with serial.Serial(port) as comport:
         if comport.in_waiting > 0:
             data_read = comport.read(comport.in_waiting)
             for byte in data_read:
-                Data[index] = byte
+                Data.append(byte)
                 index += 1
                 if index == total_sample_count:
                     break
