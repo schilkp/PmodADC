@@ -75,7 +75,7 @@ reg [25:0] ledcnt_rxerr;
 reg [25:0] ledcnt_txerr;
 assign led_txerr_o = ledcnt_txerr != 0;
 assign led_rxerr_o = ledcnt_rxerr != 0;
-localparam LEDCNT_MAX = 36000000;
+localparam LEDCNT_MAX = 7200000;
 
 // Decrease counters without under-flowing
 function [25:0] dec_cntr (input [25:0] value);
