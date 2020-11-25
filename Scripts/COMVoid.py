@@ -1,11 +1,12 @@
 import serial
+from serial import SerialException
 
 port = "COM8"
 
 with serial.Serial(port, timeout=1) as comport:
     while True:
         try:
-            comport.read(1)
-        except:
-            print('?')
+            comport.read()
+        except SerialException:
+            print('Serial Exception!')
             pass
