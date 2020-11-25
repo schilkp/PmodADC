@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.77 (w)1999-2016 BSI
-[*] Fri Nov 20 20:10:17 2020
+[*] Wed Nov 25 14:54:15 2020
 [*]
 [dumpfile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\Setup4_AudioInterface\main_tb.vcd"
-[dumpfile_mtime] "Fri Nov 20 20:08:28 2020"
-[dumpfile_size] 549620
+[dumpfile_mtime] "Wed Nov 25 14:53:40 2020"
+[dumpfile_size] 539464
 [savefile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\Setup4_AudioInterface\main_tb.gtkw"
-[timestart] 0
+[timestart] 5650000
 [size] 1536 801
 [pos] -1 -1
-*-25.000000 17630000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-22.000000 17970000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] template_tb.
 [treeopen] template_tb.dut.
 [treeopen] template_tb.dut.adc_dac_interface.
