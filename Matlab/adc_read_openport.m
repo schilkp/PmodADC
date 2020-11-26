@@ -1,32 +1,23 @@
-function [audio, sample_count, fail_count] = record_data(nsamples)
-    
+function [audio, sample_count, fail_count] = adc_read_openport(nsamples, com)
     % Record Data
     raw_data_count = nsamples*2;
-    com = serialport('COM8',9600, 'Timeout', 1);
     raw_data = zeros(nsamples, 1,'uint8');
-    flush(com)
-    
     index = 1;
+    flush(com)
     while index <= raw_data_count
-        if com.NumBytesAvailable > 0
+        % Read all available bytes
+        samples_read = read(com, max(com.NumBytesAvailable,1), "uint8");
             
-            % Read all available bytes
-            samples_read = read(com, com.NumBytesAvailable, "uint8");
-            
-            % Fill read bytes into samples
-
-            for i = 1:size(samples_read,2)
-                 raw_data(index) = samples_read(i);
-                 index = index + 1;
-                 if index > raw_data_count
-                    break
-                 end
-            end
-        end 
+        % Fill read bytes into samples
+        for i = 1:size(samples_read,2)
+             raw_data(index) = samples_read(i);
+             index = index + 1;
+             if index > raw_data_count
+                break
+             end
+        end
     end
-    
-    clear com;
-    
+
     % Decode Samples
     audio = zeros(nsamples, 1,'uint16');
     fail_count = 0;
