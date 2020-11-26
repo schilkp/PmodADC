@@ -24,7 +24,7 @@ module computer_interface(
 );
 
 reg [13:0] dac_data;
-assign dac_data_o = {2'b0,dac_data};
+assign dac_data_o = dac_data;
 
 reg adc_data_rdy_old;
 reg [13:0] adc_data;
@@ -110,22 +110,6 @@ localparam STATE_TX1 =  1;
 localparam STATE_TX2 =  2;
 localparam STATE_RX1 =  3;
 localparam STATE_RX2 =  4;
-
-/*
- SM needs to define:
- 
- dac_data
- 
-
- DONE:
- state
- ledcnt_rxerr
- ledcnt_txerr
- adc_data
- fifo_tx_data;
- fifo_tx_data_rdy;
- dac_data_rdy_o;
-*/
 
 always @ (posedge clk_i) begin
 	if(~reset_ni) begin
@@ -232,13 +216,13 @@ always @ (posedge clk_i) begin
 					if(fifo_rx_data_rdy & first_pckg_ok(fifo_rx_data)) begin
 						// Successful, Receive second package.
 						state <= STATE_RX2;
-						ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
+						ledcnt_rxerr <= LEDCNT_MAX;
 						fifo_rx_poll <= 1;
 						dac_data <= (fifo_rx_data & 8'h7F) << 7; 
 					end else begin
 						// Failed, Stop reception
 						state <= STATE_IDLE;
-						ledcnt_rxerr <= LEDCNT_MAX;
+						ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
 						fifo_rx_poll <= 0;
 						dac_data <= dac_data;
 					end
@@ -264,12 +248,12 @@ always @ (posedge clk_i) begin
 					state <= STATE_IDLE;
 					if(fifo_rx_data_rdy & second_pckg_ok(fifo_rx_data)) begin
 						// Successful
-						ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
+						ledcnt_rxerr <= LEDCNT_MAX;
 						dac_data_rdy_o <= 1;
 						dac_data <= dac_data | (fifo_rx_data & 8'h7F);
 					end else begin
 						// Failed
-						ledcnt_rxerr <= LEDCNT_MAX;
+						ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
 						dac_data_rdy_o <= 0;
 						dac_data <= dac_data;
 					end

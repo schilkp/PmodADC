@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.77 (w)1999-2016 BSI
-[*] Wed Nov 25 14:54:15 2020
+[*] Wed Nov 25 16:56:37 2020
 [*]
 [dumpfile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\Setup4_AudioInterface\main_tb.vcd"
-[dumpfile_mtime] "Wed Nov 25 14:53:40 2020"
+[dumpfile_mtime] "Wed Nov 25 15:04:02 2020"
 [dumpfile_size] 539464
 [savefile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\Setup4_AudioInterface\main_tb.gtkw"
-[timestart] 5650000
+[timestart] 17380000
 [size] 1536 801
 [pos] -1 -1
-*-22.000000 17970000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-22.000000 26210000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] template_tb.
 [treeopen] template_tb.dut.
 [treeopen] template_tb.dut.adc_dac_interface.
@@ -35,15 +35,15 @@ template_tb.dut.ADC_Comp_i
 template_tb.dut.ADC_Comp_L_o
 @200
 -DAC
-@28
+@29
 template_tb.dut.DAC_Ser_o
+@28
 template_tb.dut.DAC_SClk_o
 template_tb.dut.DAC_LClk_o
 @200
 -FIFO
-@29
-template_tb.dut.adc_dac_interface.data_io[0:7]
 @28
+template_tb.dut.adc_dac_interface.data_io[0:7]
 template_tb.dut.fifo_nRXF_i
 template_tb.dut.fifo_nTXE_i
 template_tb.dut.fifo_nRD_o
