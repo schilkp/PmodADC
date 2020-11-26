@@ -83,31 +83,29 @@ always @ (posedge clk) begin
 		if(counter == COUNTER_MAX) begin
 			counter <= 0;
 			tx_data_rdy <= 1;
-			if(data == "}") begin
-				data <= "0";
-			end else begin	
-				data <= data + 1;
-			end
 		end else begin
 			// Transmit second package a little later
 			counter <= counter + 1;
-			if(counter == 7) begin
+			if(counter == 5) begin
 				tx_data_rdy <= 1;
 			end else begin
 				tx_data_rdy <= 0;
 			end
-			data <= data;
 		end 
 		
-
-		/* No RX for new
-		if(counter == COUNTER_HALF) begin
+		if(counter == 11) begin
 			rx_poll <= 'b1;
+			data <= data;
 		end else begin
-			rx_poll <= 'b0;
+			if(counter == 17) begin
+				rx_poll <= 'b1;
+				data <= rx_data;
+			end else begin
+				rx_poll <= 'b0;
+				data <= data;
+			end
+			
 		end
-		*/ 
-		rx_poll <= 'b0;
 	end
 end
 
