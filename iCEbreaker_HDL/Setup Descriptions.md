@@ -13,6 +13,6 @@ PMOD1A - PmodADC
 PMOD1B - PmodDAC
 
 Note:
-Requires FT2232H to be reprogrammed to FIFO mode on Port B. (See Documentation [here](Doc/FT2232H_Setup.md))
-Requires iCEBreaker board to be slight modified. (See Documentation [here](Doc/iCEBreakerMod.md))
-See [here](Scripts) for all computer-side scripts.
+Requires FT2232H to be reprogrammed to FIFO mode on Port B. (See Documentation [here](../Doc/FT2232H_Setup.md))
+Requires iCEBreaker board to be slight modified. (See Documentation [here](../Doc/iCEBreakerMod.md))
+See [here](../Scripts) for all computer-side scripts.
