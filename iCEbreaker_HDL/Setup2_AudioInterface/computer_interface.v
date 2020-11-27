@@ -15,7 +15,7 @@ module computer_interface(
 	input adc_data_rdy_i,
 	
 	// DAC Interface
-	output [13:0] dac_data_o,
+	output reg [13:0] dac_data_o,
 	output reg dac_data_rdy_o,
 	
 	// Status LEDs
@@ -23,9 +23,7 @@ module computer_interface(
 	output led_rxerr_o
 );
 
-reg [13:0] dac_data;
 reg [13:0] next_dac_data;
-assign dac_data_o = dac_data;
 
 reg adc_data_rdy_old;
 reg [13:0] adc_data;
@@ -92,14 +90,14 @@ endfunction
 // Check if first received package is OK
 function first_pckg_ok(input [7:0] pckg);
 	begin
-		first_pckg_ok = (pckg[7] == 1);
+		first_pckg_ok = (pckg && 8'h80 == 8'h80);
 	end
 endfunction
 
 // Check if second received package is OK
 function second_pckg_ok(input [7:0] pckg);
 	begin
-		second_pckg_ok = (pckg[7] == 0);
+		second_pckg_ok = (pckg && 8'h80 == 8'h00);
 	end
 endfunction
 
@@ -124,7 +122,7 @@ always @ (posedge clk_i) begin
 		fifo_rx_poll <= 'b0;
 		dac_data_rdy_o <= 'b0;
 		next_dac_data <= 'b0;
-		dac_data <= 'b0;
+		dac_data_o <= 'b0;
 	end else begin
 		adc_data_rdy_old <= adc_data_rdy_i;
 		
@@ -151,7 +149,7 @@ always @ (posedge clk_i) begin
 				ledcnt_txerr <= dec_cntr(ledcnt_txerr);
 				fifo_rx_poll <= 0;
 				next_dac_data <= next_dac_data;
-				dac_data <= dac_data;
+				dac_data_o <= dac_data_o;
 			end
 			STATE_TX1: begin
 				// Wait for first transmission to finish
@@ -184,7 +182,7 @@ always @ (posedge clk_i) begin
 				adc_data <= adc_data;
 				dac_data_rdy_o <= 0;
 				next_dac_data <= next_dac_data;
-				dac_data <= dac_data;
+				dac_data_o <= dac_data_o;
 			end
 			STATE_TX2: begin
 				// Wait for second transmission to finish
@@ -213,7 +211,7 @@ always @ (posedge clk_i) begin
 				fifo_tx_data_rdy <= 0;
 				dac_data_rdy_o <= 0;
 				next_dac_data <= next_dac_data;
-				dac_data <= dac_data;
+				dac_data_o <= dac_data_o;
 			end
 			STATE_RX1: begin
 				// Wait for first reception to finish
@@ -246,7 +244,7 @@ always @ (posedge clk_i) begin
 				fifo_tx_data <= fifo_tx_data;
 				fifo_tx_data_rdy <= 0;
 				dac_data_rdy_o <= 0;
-				dac_data <= dac_data;
+				dac_data_o <= dac_data_o;
 			end
 			STATE_RX2: begin
 				// Wait for second reception to finish
@@ -256,13 +254,13 @@ always @ (posedge clk_i) begin
 					if(fifo_rx_data_rdy & second_pckg_ok(fifo_rx_data)) begin
 						// Successful
 						ledcnt_rxerr <= LEDCNT_MAX;
-						dac_data <= next_dac_data | (fifo_rx_data & 8'h7F);
+						dac_data_o <= next_dac_data | (fifo_rx_data & 8'h7F);
 						next_dac_data <= 'b0;
 					end else begin
 						// Failed
 						ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
 						next_dac_data <= next_dac_data;
-						dac_data <= dac_data;
+						dac_data_o <= dac_data_o;
 					end
 					
 				end else begin 
@@ -270,7 +268,7 @@ always @ (posedge clk_i) begin
 					state <= state;
 					ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
 					next_dac_data <= next_dac_data;
-					dac_data <= dac_data;
+					dac_data_o <= dac_data_o;
 				end
 				
 				dac_data_rdy_o <= 0;
@@ -291,7 +289,7 @@ always @ (posedge clk_i) begin
 				fifo_rx_poll <= 'b0;
 				dac_data_rdy_o <= 'b0;
 				next_dac_data <= 'b0;
-				dac_data <= 'b0;
+				dac_data_o <= 'b0;
 			end
 		endcase
 	end
