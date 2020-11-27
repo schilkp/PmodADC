@@ -90,14 +90,14 @@ endfunction
 // Check if first received package is OK
 function first_pckg_ok(input [7:0] pckg);
 	begin
-		first_pckg_ok = (pckg && 8'h80 == 8'h80);
+		first_pckg_ok = (pckg[7] == 1'b1);
 	end
 endfunction
 
 // Check if second received package is OK
 function second_pckg_ok(input [7:0] pckg);
 	begin
-		second_pckg_ok = (pckg && 8'h80 == 8'h00);
+		second_pckg_ok = (pckg[7] == 1'b0);
 	end
 endfunction
 
@@ -220,7 +220,7 @@ always @ (posedge clk_i) begin
 					if(fifo_rx_data_rdy & first_pckg_ok(fifo_rx_data)) begin
 						// Successful, Receive second package.
 						state <= STATE_RX2;
-						ledcnt_rxerr <= LEDCNT_MAX;
+						ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
 						fifo_rx_poll <= 1;
 						next_dac_data <= (fifo_rx_data & 8'h7F) << 7; 
 					end else begin

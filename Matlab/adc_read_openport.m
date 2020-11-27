@@ -1,12 +1,12 @@
-function [audio, sample_count, fail_count] = adc_read_openport(nsamples, com)
+function [audio, sample_count, fail_count] = adc_read_openport(sport, nsamples)
     % Record Data
     raw_data_count = nsamples*2;
     raw_data = zeros(nsamples, 1,'uint8');
     index = 1;
-    flush(com)
+    flush(sport)
     while index <= raw_data_count
         % Read all available bytes
-        samples_read = read(com, max(com.NumBytesAvailable,1), "uint8");
+        samples_read = read(sport, max(sport.NumBytesAvailable,1), "uint8");
             
         % Fill read bytes into samples
         for i = 1:size(samples_read,2)
@@ -34,7 +34,7 @@ function [audio, sample_count, fail_count] = adc_read_openport(nsamples, com)
                 looking_for_pckg = 2;
             else
                 % is not the expected first package
-                failcount = failcount + 1;
+                fail_count = fail_count + 1;
             end
         else 
             if bitand(raw, 0x0080) == 0
