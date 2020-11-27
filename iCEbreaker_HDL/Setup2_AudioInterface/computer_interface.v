@@ -226,7 +226,8 @@ always @ (posedge clk_i) begin
 					end else begin
 						// Failed, Stop reception
 						state <= STATE_IDLE;
-						ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
+						ledcnt_rxerr <= LEDCNT_MAX;
+						//ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
 						fifo_rx_poll <= 0;
 						next_dac_data <= 'b0;
 					end
@@ -253,12 +254,14 @@ always @ (posedge clk_i) begin
 					state <= STATE_IDLE;
 					if(fifo_rx_data_rdy & second_pckg_ok(fifo_rx_data)) begin
 						// Successful
-						ledcnt_rxerr <= LEDCNT_MAX;
+						// ledcnt_rxerr <= LEDCNT_MAX;
+						ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
 						dac_data_o <= next_dac_data | (fifo_rx_data & 8'h7F);
 						next_dac_data <= 'b0;
 					end else begin
 						// Failed
-						ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
+						ledcnt_rxerr <= LEDCNT_MAX;
+						//ledcnt_rxerr <= dec_cntr(ledcnt_rxerr);
 						next_dac_data <= next_dac_data;
 						dac_data_o <= dac_data_o;
 					end
