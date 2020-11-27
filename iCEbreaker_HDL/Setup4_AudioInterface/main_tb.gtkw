@@ -1,27 +1,29 @@
 [*]
 [*] GTKWave Analyzer v3.3.77 (w)1999-2016 BSI
-[*] Wed Nov 25 16:56:37 2020
+[*] Fri Nov 27 09:46:20 2020
 [*]
 [dumpfile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\Setup4_AudioInterface\main_tb.vcd"
-[dumpfile_mtime] "Wed Nov 25 15:04:02 2020"
-[dumpfile_size] 539464
+[dumpfile_mtime] "Fri Nov 27 09:40:52 2020"
+[dumpfile_size] 544651
 [savefile] "C:\Users\pschilk\home\Repos\PmodADC\iCEbreaker_HDL\Setup4_AudioInterface\main_tb.gtkw"
-[timestart] 17380000
-[size] 1536 801
-[pos] -1 -1
-*-22.000000 26210000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[timestart] 15861000
+[size] 1920 1017
+[pos] 1911 -9
+*-19.000000 17610000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] template_tb.
 [treeopen] template_tb.dut.
 [treeopen] template_tb.dut.adc_dac_interface.
-[sst_width] 197
+[sst_width] 269
 [signals_width] 322
 [sst_expanded] 1
-[sst_vpaned_height] 224
+[sst_vpaned_height] 300
 @200
 -Testbench stimulus
 @28
 template_tb.clk_i
 template_tb.reset_ni
+@22
+template_tb.dac_shreg_l[15:0]
 @200
 -
 -===== FPGA IO =====
@@ -35,9 +37,8 @@ template_tb.dut.ADC_Comp_i
 template_tb.dut.ADC_Comp_L_o
 @200
 -DAC
-@29
-template_tb.dut.DAC_Ser_o
 @28
+template_tb.dut.DAC_Ser_o
 template_tb.dut.DAC_SClk_o
 template_tb.dut.DAC_LClk_o
 @200
@@ -61,6 +62,27 @@ template_tb.dut.adc_dac_interface.state[2:0]
 @28
 template_tb.dut.adc_dac_interface.tx_pckg_1
 template_tb.dut.adc_dac_interface.tx_pckg_2
+@c00022
+template_tb.dut.adc_dac_interface.dac_data[13:0]
+@28
+(0)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(1)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(2)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(3)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(4)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(5)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(6)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(7)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(8)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(9)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(10)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(11)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(12)template_tb.dut.adc_dac_interface.dac_data[13:0]
+(13)template_tb.dut.adc_dac_interface.dac_data[13:0]
+@1401200
+-group_end
+@22
+template_tb.dut.adc_dac_interface.next_dac_data[13:0]
 @200
 -
 -===== FIFO Interface =====
@@ -71,6 +93,8 @@ template_tb.dut.adc_dac_interface.fifo.tx_data_i[0:7]
 @28
 template_tb.dut.adc_dac_interface.fifo.tx_ok_o
 template_tb.dut.adc_dac_interface.fifo.tx_err_o
+@29
+template_tb.dut.adc_dac_interface.fifo.bus_oe
 @200
 -
 @28
@@ -84,5 +108,13 @@ template_tb.dut.adc_dac_interface.fifo.rx_err_o
 -
 @28
 template_tb.dut.adc_dac_interface.fifo.busy_o
+@200
+-
+-===== ADC =====
+@28
+template_tb.dut.sa_adc.dataout_rdy
+@22
+template_tb.dut.sa_adc.dataout[13:0]
+template_tb.dut.sa_adc.state[3:0]
 [pattern_trace] 1
 [pattern_trace] 0
