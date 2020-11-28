@@ -2,7 +2,7 @@
 
 % Decide how many samples to record
 sample_rate = 41000;
-recording_length_s = 1;
+recording_length_s = 15;
 record_n_samples = sample_rate*recording_length_s;
 
 % Record audio
