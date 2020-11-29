@@ -1,7 +1,4 @@
-% Analyze ADC noise
-% Short Input. 
-
-% Settings for collecting Data
+% Analyze ADC noise with shorted input.
 collect_n_samples = 41000*30;
 collect_from_port = 'COM8';
 
@@ -18,10 +15,10 @@ noise_span = noise_max - noise_min;
 noise_std = std(double(noise_data));
 
 disp('Mean Reading: ');
-disp(noise_max);
+disp(noise_mean);
 
 disp('Max Reading: ');
-disp(noise_mean);
+disp(noise_max);
 
 disp('Min Reading: ');
 disp(noise_min);
@@ -33,9 +30,19 @@ disp('Std. Deviation of Readings: ');
 disp(noise_std);
 
 
-% Plot normalized Histogramm of sample probablilty
+% Plot distribution of sample probablilty
+[count, val] = groupcounts(noise_data);
+count = count/sum(count);
+
 f1 = figure('Name','ADC Noise Sample Probablity');
-histogram(noise_data,noise_span+1,'Normalization','probability')
-title('ADC Noise Sample Probablity')
-xlabel('Raw ADC reading') 
-ylabel('Sample Probability') 
+bar(val, count, 1);
+title('ADC Noise Sample Probablity');
+xlabel('Raw ADC reading'); 
+ylabel('Sample Probability'); 
+
+f2 = figure('Name','ADC Noise Sample Probablity (Log)');
+bar(val, count, 1);
+title('ADC Noise Sample Probablity (Log)');
+xlabel('Raw ADC reading');
+ylabel('Sample Probability (Log)');
+set(gca, 'YScale', 'log');
