@@ -1,23 +1,71 @@
 import numpy as np
+import threading
+import math
+
+
+def generate_package(value):
+    pckg1 = ((value >> 7) & 0x7F) | 0x80
+    pckg2 = value & 0x7F
+    return pckg1, pckg2
 
 
 def generate_packages(audio):
     n_samples = audio.shape[0]
 
     # result = np.zeros(n_samples*2, dtype='uint8')
-    result = bytearray(n_samples*2)
+    result = bytearray(n_samples * 2)
 
     for i in range(n_samples):
-        sample = audio[i]
-        pckg1 = ((sample >> 7) & 0x7F) | 0x80
-        result[i*2] = pckg1
-        pckg2 = sample & 0x7F
-        result[i*2+1] = pckg2
+        pckg1, pckg2 = generate_package(audio[i])
+        result[i * 2] = pckg1
+        result[i * 2 + 1] = pckg2
 
     return result
 
 
-def convert_wav_audio(audio):
+class packaging_thread(threading.Thread):
+    def __init__(self, audio, queue, batch_size):
+        threading.Thread.__init__(self)
+        self.audio = audio
+        self.queue = queue
+        self.batch_size = batch_size
+        self.all_data_parsed = threading.Event()
+        self.all_data_parsed.clear()
+
+    def run(self):
+        generate_packages_queue(self.audio, self.queue, self.batch_size)
+        self.all_data_parsed.set()
+
+
+def generate_packages_queue(audio, queue, batch_size=41000):
+    # Number of audio samples available
+    n_samples = audio.shape[0]
+
+    # Calculate number of batches:
+    n_batches = math.floor(n_samples / batch_size)
+
+    i_audio = 0
+
+    batch = None
+    for i_batch in range(n_batches):
+        # Create new batch:
+        current_batch_samples = min(batch_size, n_samples - i_audio)
+        current_batch_packages = current_batch_samples * 2
+
+        batch = bytearray(current_batch_packages)
+
+        # Fill batch with packages:
+        for i_audio_in_batch in range(current_batch_samples):
+            pckg1, pckg2 = generate_package(audio[i_audio])
+            batch[i_audio_in_batch * 2] = pckg1
+            batch[i_audio_in_batch * 2 + 1] = pckg2
+            i_audio += 1
+
+        # Add batch to queue:
+        queue.put(batch)
+
+
+def convert_float_to_uint_audio(audio):
     """
     Converts a numpy array of double [-1,1] audio samples to properly scaled, 14-bit audio samples
     :param audio: numpy array of double [-1,1] audio samples

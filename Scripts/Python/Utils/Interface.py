@@ -1,4 +1,7 @@
 import serial
+from Utils.Data_Parsing import generate_packages
+import queue
+from Utils.Data_Parsing import packaging_thread
 
 
 def record_data(port, nsamples=-1, time_s=-1, sample_rate=41000, print_progress=True):
@@ -9,7 +12,7 @@ def record_data(port, nsamples=-1, time_s=-1, sample_rate=41000, print_progress=
     :param time_s: The time in seconds to be recorded (Specify either nsamples or time_s)
     :param sample_rate: Audio sample rate. (default = 41000)
     :param print_progress: Do print percent update. (default = True)
-    :return: A list of raw samples
+    :return: A list of raw packages
     """
     if nsamples != -1 and time_s != -1:
         raise ValueError("Cannot specify both nsamples and time_s!")
@@ -55,6 +58,24 @@ def record_data(port, nsamples=-1, time_s=-1, sample_rate=41000, print_progress=
     return data
 
 
-def play_data(port, packages):
+def play_data(port, audio):
+    # Generate packages:
+    packages = generate_packages(audio)
+
     with serial.Serial(port) as comport:
         comport.write(packages)
+
+
+def play_data_async_packaging(port, audio, batchsize=41000):
+    # Setup a queue for package batches:
+    batch_queue = queue.Queue()
+
+    # Launch packaging thread:
+    pckg_thread = packaging_thread(audio, batch_queue, batchsize)
+    pckg_thread.start()
+
+    # Start transmitting:
+    with serial.Serial(port) as comport:
+        while not (pckg_thread.all_data_parsed.is_set() and batch_queue.empty()):
+            batch = batch_queue.get()
+            comport.write(batch)

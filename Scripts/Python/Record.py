@@ -35,6 +35,7 @@ except SerialException as e:
     print('Serial Error!')
     print(e)
     sys.exit()
+
 # Process
 audio, fail_count = parse_recording_data(raw_data)
 print("Package decode fails: " + str(fail_count))

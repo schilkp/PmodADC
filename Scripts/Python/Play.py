@@ -1,8 +1,9 @@
 import argparse
 from Utils.File_Interface import read_wav
-from Utils.Data_Parsing import convert_wav_audio
+from Utils.Data_Parsing import convert_float_to_uint_audio
 from Utils.Data_Parsing import generate_packages
 from Utils.Interface import play_data
+from Utils.Interface import play_data_async_packaging
 
 # Setup argument parser
 parser = argparse.ArgumentParser(prog='Play.py', description='Play Audio through the PmodDAC.\n'
@@ -24,10 +25,7 @@ else:
     audio = read_wav(args.wavfile, channel=1)
 
 # Scale the audio data:
-audio = convert_wav_audio(audio)
-
-# Generate packages:
-packages = generate_packages(audio)
+audio = convert_float_to_uint_audio(audio)
 
 # Play the audio:
-play_data('COM8', packages)
+play_data_async_packaging('COM8', audio)
