@@ -100,7 +100,7 @@ def parse_recording_data(data):
     max_reading = 0x3FFF
 
     # Theoretical offset is 8192, 8137 was determined experimentally
-    dc_offset = 8137
+    dc_offset = 8191
 
     # Remove DC offset:
     audio = audio - dc_offset
