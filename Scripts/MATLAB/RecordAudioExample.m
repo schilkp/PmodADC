@@ -20,4 +20,11 @@ sound(audio, sample_rate);
 
 % Save recorded audio to file:
 audio_file_name = 'recording.wav';
+
+% Upsample to 44100, makes file playback easier. 
+audio_resample = resample(audio, 44100,41000);
+if(max(abs(audio_resample))>1)
+    audio_resample = audio_resample/max(abs(audio_resample));
+end
+
 audiowrite(audio_file_name, audio, sample_rate);

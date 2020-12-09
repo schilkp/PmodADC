@@ -7,6 +7,14 @@ file_name = 'some_audio_file.wav';
 % Use only one channel, if there are multiple:
 audio = audio(:,1);
 
+% Resample audio to 41000
+if(Fs ~= 41000)
+    audio = resample(audio,41000,44100);
+    if(max(abs(audio))>1)
+        audio = audio/max(abs(audio));
+    end
+end
+
 % Get audio ready:
 audio = dac_scale_audio(audio);
 
