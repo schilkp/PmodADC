@@ -7,15 +7,15 @@ import sys
 from serial import SerialException
 
 # Setup argument parser
-parser = argparse.ArgumentParser(prog='Play.py', description='Play Audio through the PmodDAC.\n'
-                                                             'Note that the sample rate is discarded and the audio is'
-                                                             'played at 41kHz.')
+parser = argparse.ArgumentParser(prog='Play.py', description='Play audio through the PmodDAC.\n'
+                                                             'By default the audio is resampled to '
+                                                             '41kHz.')
 parser.add_argument('comport', help='The COM port to which the board is connected.')
 parser.add_argument('wavfile', help='The filename of the audio file.')
 length_group = parser.add_mutually_exclusive_group(required=False)
 length_group.add_argument('-L', action='store_true', help='Play the left audio channel.')
 length_group.add_argument('-R', action='store_true', help='Play the right audio channel.')
-parser.add_argument('-r', action='store_true', help='Do not re-sample audio to 41000kHz.')
+parser.add_argument('-r', action='store_true', help='Do not re-sample audio to 41kHz.')
 # Parse arguments:
 args = parser.parse_args()
 
