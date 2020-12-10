@@ -4,6 +4,6 @@ function dac_play(portname, audio)
 %   connected to the port with name portname.
     sport = serialport(portname,9600);
     dac_play_openport(sport,audio);
-    clear com;
+    clear sport;
 end
 

@@ -4,6 +4,6 @@ function [audio, fail_count] = adc_read(portname, nsamples)
 %   packages that failed to decode. 
     sport = serialport(portname, 9600, 'Timeout', 0.1);
     [audio, fail_count] = adc_read_openport(sport, nsamples);
-    clear com;
+    clear sport;
 end
 
