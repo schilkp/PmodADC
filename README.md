@@ -44,7 +44,7 @@ A guide to setting up the open-source [apio](https://github.com/FPGAwars/apio) t
 
 This project requires some hardware modifications to the iCEbreaker board. See [here](Doc/iCEBreakerMod.md) for details.  
 
-The Python/Matlab scripts to play and record audio require some drivers and setup. See [here](FT2232H_Setup.md) for details.  
+The Python/Matlab scripts to play and record audio require some drivers and setup. See [here](Doc/FT2232H_Setup.md) for details.  
 
 Two versions of the Verilog Code are provided:  
 	- Setup 1, which immediately plays back the audio recorded by the PmodADC via the PmodDAC.  
@@ -61,6 +61,8 @@ They rely on numpy, pyserial, wavio, and scipy:
 ```bash
 > pip install -r requirements.txt
 ```
+
+They have only been tested under python3.
 
 ### Record.py
 
@@ -88,7 +90,7 @@ optional arguments:
 Record 10 seconds of audio from COM8 and save it to recording.wav:
 
 ```bash
-python Record.py COM8 recording.wav -s 10
+python3 Record.py COM8 recording.wav -s 10
 ```
 
 ### Play.py
@@ -115,10 +117,14 @@ optional arguments:
 Play the left channel of some_audio_file.wav via COM8:
 
 ```bash
-python Play.py COM8 some_audio_file.wav
+python3 Play.py COM8 some_audio_file.wav -L
 ```
 
 ## Matlab Utilities
+
+Matlab functions to communicate with the PmodADC/PmodDAC are also provided. 
+
+See [Scripts/MATLAB/RecordAudioExample.m](Scripts/MATLAB/RecordAudioExample.m) and [Scripts/MATALB/PlayAudioExample.m](Scripts/MATALB/PlayAudioExample.m)
 
 ## Music Attribution
 
