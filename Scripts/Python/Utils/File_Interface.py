@@ -33,4 +33,4 @@ def read_wav(file_name, channel=0):
     # Scale to [-1,1]:
     audio = (audio - min_value) * 2 / (max_value-min_value) - 1
 
-    return audio
+    return audio, wav.rate

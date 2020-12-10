@@ -1,9 +1,11 @@
 from Utils.Interface import record_data
 from Utils.Data_Parsing import parse_recording_data
 from Utils.File_Interface import generate_wav
+from Utils.resample import resample_audio
 import argparse
 from serial import SerialException
 import sys
+
 
 # Setup argument parser
 parser = argparse.ArgumentParser(prog='Record.py', description='Record Audio from the PmodADC.')
@@ -13,6 +15,7 @@ length_group = parser.add_mutually_exclusive_group(required=True)
 length_group.add_argument('-s', type=int, help='The number of seconds that should be recorded.')
 length_group.add_argument('-n', type=int, help='The number of samples that should be recorded.')
 length_group.add_argument('-i', action='store_true', help='Recorded until a Keyboard Interrupt is received.')
+parser.add_argument('-r', action='store_true', help='Do not re-sample audio to 44100 khz.')
 
 # Parse arguments:
 args = parser.parse_args()
@@ -40,6 +43,14 @@ except SerialException as e:
 audio, fail_count = parse_recording_data(raw_data)
 print("Package decode fails: " + str(fail_count))
 
+
+f_s = 41000
+# Re-sample, unless disabled:
+if not args.n:
+    f_s = 44100
+    print('Re-sampling audio to 441000kHz...')
+    audio = resample_audio(audio, 41000, 44100)
+
 # Write to file
-generate_wav(audio, args.outfile)
+generate_wav(audio, args.outfile, sample_rate=f_s)
 
