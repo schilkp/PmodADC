@@ -5,7 +5,7 @@ Connections:
 PMOD1A - PmodADC
 PMOD1B - PmodDAC
 
-# Setup 4: Audio Interface
+# Setup 2: Audio Interface
 Via USB: Transmit audio recorded by PmodADC, and receive audio for PmodDAC. 
 
 Connections:
