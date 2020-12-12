@@ -4,6 +4,7 @@
 % Calibrate offset?
 
 input_steps = uint16(0:1:2^14-1);   % Step Size?, Min/Max?
+% input_steps = uint16(0:1000:2^14-1);
 
 n_steps = size(input_steps,2);
 
@@ -13,7 +14,7 @@ set_point = zeros(n_steps, 1);
 prog_up = ProgressUpdate(n_steps,5);
 
 % Open Connection:
-com = serialport('COM8', 9600, 'Timeout', 0.1);
+com = serialport('COM6', 9600, 'Timeout', 0.1);
 
 % Open SMU
 
@@ -21,9 +22,9 @@ com = serialport('COM8', 9600, 'Timeout', 0.1);
 SMU = keysight_B2902A('USB0::0x0957::0x8C18::MY51145396::0::INSTR'); %find usb string with tmtool
 
 % configure
-SMU.configure_source(1, 'VOLT', 10e-3); %sset to voltage, compliance 1mA
+SMU.configure_source(1, 'VOLT', 100e-9); %set to voltage, compliance
 SMU.configure_measurement(1,10e-3);
-SMU.set_output(1,'ON');
+SMU.set_output(5.5,'ON');
 
 pause on;
 
