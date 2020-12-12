@@ -1,22 +1,18 @@
 % Measure ADC Output amplitude over a range frequencies
 % ADC Standard Config.
 
-% Store all? 
-% Calibrate offset?
-
-%input_steps = logspace(0,4,20*5);   % Step Size?, Min/Max?
-input_steps = logspace(0,4,10);
+input_steps = logspace(0,6,20*7);
 
 n_steps = size(input_steps,2);
-samples_per_step = 41000;  % ? Constant? Reduce for higher f's?
+samples_per_step = 41000; 
 
 data = uint16(zeros(n_steps,samples_per_step));
-set_point = zeros(n_steps);
+set_point = zeros(n_steps,1);
 
 prog_up = ProgressUpdate(n_steps,5);
 
 % Open Connection:
-com = serialport('COM6', 9600, 'Timeout', 0.1);
+com = serialport('COM15', 9600, 'Timeout', 2);
 
 % Instrument Connection
 FGEN = keysight_33612A('USB0::0x0957::0x4B07::MY59000369::0::INSTR'); %find usb string with tmtool
@@ -33,9 +29,10 @@ for step = 1:n_steps
    
    % Set Freq.
    FGEN.set_frequency_value(1,freq);
+   pause(0.5);
    
    % Read from ADC
-   adc_read_openport(com, 2100);
+   adc_read_openport(com, samples_per_step);
    [reading, fail_count] = adc_read_openport(com,samples_per_step+4);
    
    % Stop if there was a problem with package decoding:
@@ -61,6 +58,3 @@ FGEN.disconnect();
 clear com;
 
 save ADC_FResp.mat;
-
-% Look at: 
-%   Amplitude vs f  (look at rms?)
