@@ -1,11 +1,6 @@
 % Measure AC Output at different frequenciess 
 % DAC Standard Config.
 
-% Calibrate offset?
-% Dropped Samples!???
-% Store/Process?
-% Async play?
-
 input_steps = 5dat:1000:30000;   % Step Size?, Min/Max?
 
 n_steps = size(input_steps,2);

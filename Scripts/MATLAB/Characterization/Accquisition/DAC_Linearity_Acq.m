@@ -1,8 +1,6 @@
 % Measure actual DAC DC Output voltage at different DAC setpoints
 % Output Buffer/Filter/AC Coupling *bypassed*.
 
-% Calibrate offset?
-
 input_steps = uint16(0:1:2^14-1);   % Step Size?, Min/Max?
 % input_steps = uint16(0:1000:2^14-1);
 
