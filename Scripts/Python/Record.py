@@ -50,7 +50,7 @@ f_s = 41000
 # Re-sample, unless disabled:
 if not args.n:
     f_s = 44100
-    print('Re-sampling audio to 441000kHz...')
+    print('Re-sampling audio...')
     audio = resample_audio(audio, 41000, 44100)
 
 # Write to file
