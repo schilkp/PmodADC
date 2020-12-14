@@ -29,10 +29,10 @@ The wav files can be found [here](Doc/Demos), or via the Soundcloud links below:
 
 | *Song* 	| *Original* 	| *PmodADC Demo* 	| *PmodDAC Demo* 	|
 |:-:	|:-:	|:-:	|:-:	|
-| New Hero in Town 	| [here](https://soundcloud.com/user-489490213/new-hero-in-town-reference) 	| [here](https://soundcloud.com/user-489490213/new-hero-in-town-pmodadc) 	| [here](https://soundcloud.com/user-489490213/new-hero-in-town-pmoddac) 	|
-| Protofunk 	| [here](https://soundcloud.com/user-489490213/protofunk-reference) 	| [here](https://soundcloud.com/user-489490213/protofunk-pmodadc) 	| [here](https://soundcloud.com/user-489490213/protofunk-pmoddac) 	|
-| Whiskey on the Mississippi 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-reference) 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-pmodadc) 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-pmoddac) 	|
-| The Parting 	| [here](https://soundcloud.com/user-489490213/the-parting-reference) 	| [here](https://soundcloud.com/user-489490213/the-parting-pmodadc) 	| [here](https://soundcloud.com/user-489490213/the-parting-pmoddac) 	|
+| New Hero in Town 	| [here](https://soundcloud.com/user-489490213/new-hero-in-town-reference/s-YKGpP2wkpSc) 	| [here](https://soundcloud.com/user-489490213/new-hero-in-town-pmodadc/s-A1OPIKn5Tv4) 	| [here](https://soundcloud.com/user-489490213/new-hero-in-town-pmoddac/s-smGRP41zKKE) 	|
+| Protofunk 	| [here](https://soundcloud.com/user-489490213/protofunk-reference/s-mYtDzv4H0rD) 	| [here](https://soundcloud.com/user-489490213/protofunk-pmodadc/s-5CrWlwWIQJU) 	| [here](https://soundcloud.com/user-489490213/protofunk-pmoddac/s-AqIKrZKs7Aa) 	|
+| Whiskey on the Mississippi 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-reference/s-0ekaJDO2ERm) 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-pmodadc/s-d2xfiT4uBGa) 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-pmoddac/s-CflAaRhN0gA) 	|
+| The Parting 	| [here](https://soundcloud.com/user-489490213/the-parting-reference/s-s09MCjP3SIX) 	| [here](https://soundcloud.com/user-489490213/the-parting-pmodadc/s-gcHSaS2ZzWT) 	| [here](https://soundcloud.com/user-489490213/the-parting-pmoddac/s-kLg3MuZsgWg) 	|
 
 Alternatively, a single website with all the above audio files can be found [here](https://soundcloud.com/user-489490213/sets/pmodadc-demonstration/s-fJryQAe7XSp).
 
