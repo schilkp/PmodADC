@@ -29,14 +29,12 @@ The wav files can be found [here](Doc/Demos), or via the Soundcloud links below:
 
 | *Song* 	| *Original* 	| *PmodADC Demo* 	| *PmodDAC Demo* 	|
 |:-:	|:-:	|:-:	|:-:	|
-| New Hero in Town 	| [here](https://soundcloud.com/user-489490213/new-hero-in-town-reference) 	| [here](https://soundcloud.com/user-489490213/new-hero-in-town-pmodadc) 	| (Will follow soon) 	|
-| Protofunk 	| [here](https://soundcloud.com/user-489490213/protofunk-reference) 	| [here](https://soundcloud.com/user-489490213/protofunk-pmodadc) 	| (Will follow soon) 	|
-| Whiskey on the Mississippi 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-reference) 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-pmodadc) 	| (Will follow soon) 	|
-| The Parting 	| [here](https://soundcloud.com/user-489490213/the-parting-reference) 	| [here](https://soundcloud.com/user-489490213/the-parting-pmodadc) 	| (Will follow soon) 	|
+| New Hero in Town 	| [here](https://soundcloud.com/user-489490213/new-hero-in-town-reference) 	| [here](https://soundcloud.com/user-489490213/new-hero-in-town-pmodadc) 	| [here](https://soundcloud.com/user-489490213/new-hero-in-town-pmoddac) 	|
+| Protofunk 	| [here](https://soundcloud.com/user-489490213/protofunk-reference) 	| [here](https://soundcloud.com/user-489490213/protofunk-pmodadc) 	| [here](https://soundcloud.com/user-489490213/protofunk-pmoddac) 	|
+| Whiskey on the Mississippi 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-reference) 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-pmodadc) 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-pmoddac) 	|
+| The Parting 	| [here](https://soundcloud.com/user-489490213/the-parting-reference) 	| [here](https://soundcloud.com/user-489490213/the-parting-pmodadc) 	| [here](https://soundcloud.com/user-489490213/the-parting-pmoddac) 	|
 
 Alternatively, a single website with all the above audio files can be found [here](https://soundcloud.com/user-489490213/sets/pmodadc-demonstration).
-
-[PmodDAC Demos will follow in a few days]
 
 ## Setup
 
