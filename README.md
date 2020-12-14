@@ -34,7 +34,7 @@ The wav files can be found [here](Doc/Demos), or via the Soundcloud links below:
 | Whiskey on the Mississippi 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-reference) 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-pmodadc) 	| [here](https://soundcloud.com/user-489490213/whiskey-on-the-mississippi-pmoddac) 	|
 | The Parting 	| [here](https://soundcloud.com/user-489490213/the-parting-reference) 	| [here](https://soundcloud.com/user-489490213/the-parting-pmodadc) 	| [here](https://soundcloud.com/user-489490213/the-parting-pmoddac) 	|
 
-Alternatively, a single website with all the above audio files can be found [here](https://soundcloud.com/user-489490213/sets/pmodadc-demonstration).
+Alternatively, a single website with all the above audio files can be found [here](https://soundcloud.com/user-489490213/sets/pmodadc-demonstration/s-fJryQAe7XSp).
 
 ## Setup
 
