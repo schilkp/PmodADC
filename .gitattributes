@@ -1,4 +1,6 @@
 # Ignore HTML BOMs in Github's Language Stats
 *.html linguist-detectable=false
 
+# Ignore LTSpice sims because they get mis-classified
+*.asc linguist-detectable=false
 
